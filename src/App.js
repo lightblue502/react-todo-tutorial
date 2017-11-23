@@ -6,15 +6,35 @@ import TodoCreate from './components/TodoCreate'
 import TodoList from './components/TodoList'
 
 
+const todos = [
+  {
+      task: 'make React tutorial',
+      isCompleted: false
+  },
+  {
+      task: 'eat dinner',
+      isCompleted: true
+  }
+];
+  
+
 class App extends Component {
+  
+
+  state = {
+    todos
+  }
+
   render() {
     return (
       <div>
         {/* input */}
-        <TodoCreate />
-
+        <TodoCreate todos={this.state.todos}/>
+        
         {/* table */}
-        <TodoList/>
+        <TodoList
+          todos={this.state.todos}
+        />
       </div>
     );
   }
