@@ -54,7 +54,6 @@ export default class TodoListContainer extends React.Component{
     }
 
     saveTask(id, task){
-
         let todos = _.map(this.state.todos, (todo) => {
             if(todo.id === id){
                 return {
@@ -69,7 +68,13 @@ export default class TodoListContainer extends React.Component{
         this.setState({
             todos
         })
-        
+    }
+
+    deleteTask(id){
+        let todos = _.reject(this.state.todos, todo => todo.id === id);
+        this.setState({
+            todos
+        })
     }
 
     render(){
@@ -86,6 +91,7 @@ export default class TodoListContainer extends React.Component{
                     todos={this.state.todos}
                     toggleTask={this.toggleTask.bind(this)}
                     saveTask={this.saveTask.bind(this)}
+                    deleteTask={this.deleteTask.bind(this)}
                 />
             </div>
         )

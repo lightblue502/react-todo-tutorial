@@ -13,9 +13,10 @@ export default class TodoCreate extends React.Component{
     render(){
         return (
             <form onSubmit={this.handleCreate.bind(this)}>
-                <input ref={instance => {
-                    this.createInput = instance
-                    }} type="text" placeholder="What do I need to do?" />
+                <input 
+                    type="text" 
+                    ref={instance => this.createInput = instance} 
+                    placeholder="What do I need to do?" />
                 <button> Create </button>
             </form>
         )

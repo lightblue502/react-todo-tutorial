@@ -27,6 +27,11 @@ export default class TodoListItem extends React.Component{
         this.setState({ isEditing: false})
     }
 
+    onDeleteClick(){
+        const { id } = this.props;
+        this.props.deleteTask(id);
+    }
+
     renderTaskSection(){
         const { id, task, isCompleted } = this.props;
         
@@ -67,7 +72,7 @@ export default class TodoListItem extends React.Component{
         return (
             <td>
                 <button onClick={this.onEditClick.bind(this)}> Edit </button>
-                <button> Delete </button>
+                <button onClick={this.onDeleteClick.bind(this)}> Delete </button>
             </td>
         )
     }
