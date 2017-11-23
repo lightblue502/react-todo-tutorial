@@ -7,15 +7,16 @@ export default class TodoListItem extends React.Component{
     }
 
     renderTaskSection(){
-        const { isCompleted } = this.props;
+        const { id, task, isCompleted } = this.props;
         
         const taskStyles = {
-            color: isCompleted? 'green': 'red'
+            color: isCompleted? 'green': 'red',
+            cursor: 'pointer'
         }
 
         return (
-            <td style={taskStyles}>
-                { this.props.task }
+            <td style={taskStyles} onClick={this.props.toggleTask.bind(this, id)}>
+                { task }
             </td>
         )
     }

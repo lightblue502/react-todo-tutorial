@@ -4,8 +4,10 @@ export default class TodoListHeader extends React.Component{
     render(){
         return (
             <thead>
-                <th> Task </th>
-                <th> Action </th>
+                <tr>
+                    <th> Task </th>
+                    <th> Action </th>
+                </tr>
             </thead>
         )
     }
